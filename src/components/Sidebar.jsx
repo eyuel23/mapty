@@ -2,7 +2,7 @@ import "./Sidebar.css";
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <img src="../../public/logo.png" alt="Logo" className="logo" />
+      <img src="/logo.png" alt="Logo" className="logo" />
 
       <ul className="workouts">
         <form className="form hidden">
