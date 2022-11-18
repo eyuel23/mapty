@@ -2,6 +2,7 @@ import "./Map.css";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import useGeoLocation from "../hooks/useGeolocation";
 import { useRef, useState } from "react";
+
 export default function Map() {
   const [center, setCenter] = useState({ lat: 13.084622, lng: 80.248357 });
   const ZOOM_LEVEL = 9;
@@ -19,6 +20,15 @@ export default function Map() {
   //     alert(location.error.message);
   //   }
   // };
+  // const map = useMapEvents({
+  //   click: () => {
+  //     map.locate();
+  //   },
+  //   locationfound: (location) => {
+  //     console.log("location found:", location);
+  //   },
+  // });
+
   function mapHandler() {}
   return (
     <div id="map" onClick={mapHandler}>
