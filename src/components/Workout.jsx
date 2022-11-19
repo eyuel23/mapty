@@ -1,21 +1,31 @@
 import React from "react";
+import Cycling from "./cycling";
+import Running from "./Running";
+import "./Sidebar.css";
 
-export default function workout() {
+export default function Workout(props) {
+  const workout = props.workout;
+
   return (
-    <li class="workout workout--${workout.type}" data-id="${workout.id}">
-      <h2 class="workout__title">${workout.description}</h2>
-      <div class="workout__details">
-        <span class="workout__icon">
-          ${workout.type === "running" ? "🏃‍♂️" : "🚴‍♀️"}
+    <li className="workout workout--${workout.type}" data-id="${workout.id}">
+      <h2 className="workout__title">{workout.description}</h2>
+      <div className="workout__details">
+        <span className="workout__icon">
+          {workout.type === "running" ? "🏃‍♂️" : "🚴‍♀️"}
         </span>
-        <span class="workout__value">${workout.distance}</span>
-        <span class="workout__unit">km</span>
+        <span className="workout__value">{workout.distance}</span>
+        <span className="workout__unit">km</span>
       </div>
-      <div class="workout__details">
-        <span class="workout__icon">⏱</span>
-        <span class="workout__value">${workout.duration}</span>
-        <span class="workout__unit">min</span>
+      <div className="workout__details">
+        <span className="workout__icon">⏱</span>
+        <span className="workout__value">{workout.duration}</span>
+        <span className="workout__unit">min</span>
       </div>
+      {workout.type === "running" ? (
+        <Running workout={workout} />
+      ) : (
+        <Cycling workout={workout} />
+      )}
     </li>
   );
 }

@@ -1,17 +1,19 @@
 import React from "react";
+import "./Sidebar.css";
 
-export default function cycling() {
+export default function Cycling(props) {
+  const workout = props.workout;
   return (
     <>
-      <div class="workout__details">
-        <span class="workout__icon">⚡️</span>
-        <span class="workout__value">${workout.speed.toFixed(1)}</span>
-        <span class="workout__unit">km/h</span>
+      <div className="workout__details">
+        <span className="workout__icon">⚡️</span>
+        <span className="workout__value">{workout.speed}</span>
+        <span className="workout__unit">km/h</span>
       </div>
-      <div class="workout__details">
-        <span class="workout__icon">⛰</span>
-        <span class="workout__value">${workout.elevationGain}</span>
-        <span class="workout__unit">m</span>
+      <div className="workout__details">
+        <span className="workout__icon">⛰</span>
+        <span className="workout__value">{workout.elevationGain}</span>
+        <span className="workout__unit">m</span>
       </div>
     </>
   );

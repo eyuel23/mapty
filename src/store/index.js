@@ -2,6 +2,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initialWorkoutState = {
   form: false,
+  workouts: [],
 };
 const workoutSlice = createSlice({
   name: "workout",
@@ -10,6 +11,10 @@ const workoutSlice = createSlice({
   reducers: {
     showForm(state) {
       state.form = !state.form;
+    },
+    addWorkouts(state, action) {
+      const work = action.payload;
+      state.workouts.push(work);
     },
   },
 });

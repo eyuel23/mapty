@@ -1,13 +1,11 @@
 import "./Map.css";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import useGeoLocation from "../hooks/useGeolocation";
-import { useRef, useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { workoutactions } from "../store";
 export default function Map() {
-  const [center, setCenter] = useState({ lat: 13.084622, lng: 80.248357 });
-  const ZOOM_LEVEL = 9;
-  const mapRef = useRef();
   const location = useGeoLocation();
+  const dispatch = useDispatch();
 
   // const showMyLocation = () => {
   //   if (location.loaded && !location.error) {
@@ -29,7 +27,9 @@ export default function Map() {
   //   },
   // });
 
-  function mapHandler() {}
+  function mapHandler() {
+    dispatch(workoutactions.showForm());
+  }
   return (
     <div id="map" onClick={mapHandler}>
       {location.loaded && !location.error && (
